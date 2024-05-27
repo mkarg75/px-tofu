@@ -55,3 +55,6 @@ resource "kubernetes_labels" "px-enabled" {
 resource "kubectl_manifest" "storagecluster-test" {
   yaml_body = file("./storagecluster.yaml")
 }
+
+# 4. Create a storageclass
+

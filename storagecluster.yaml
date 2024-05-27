@@ -1,7 +1,7 @@
 kind: StorageCluster
 apiVersion: core.libopenstorage.org/v1
 metadata:
-  name: px-cluster-terraform
+  name: px-cluster-terraform-1
   namespace: portworx
   annotations:
 spec:
