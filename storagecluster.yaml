@@ -1,0 +1,35 @@
+kind: StorageCluster
+apiVersion: core.libopenstorage.org/v1
+metadata:
+  name: px-cluster-terraform
+  namespace: portworx
+  annotations:
+spec:
+  deleteStrategy:
+    type: UninstallAndWipe
+  image: portworx/oci-monitor:3.1.1.1
+  imagePullPolicy: Always
+  security:
+    enabled: true
+  kvdb:
+    internal: true
+  storage:
+    kvdbDevice: /dev/sdc
+    journalDevice: /dev/sdb
+  secretsProvider: k8s
+  stork:
+    enabled: true
+    args:
+      webhook-controller: "true"
+  autopilot:
+    enabled: false
+  runtimeOptions:
+    default-io-profile: "6"
+  csi:
+    enabled: true
+  monitoring:
+    telemetry:
+      enabled: false
+    prometheus:
+      enabled: false
+      exportMetrics: true
